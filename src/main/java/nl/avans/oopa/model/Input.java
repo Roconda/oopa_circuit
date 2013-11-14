@@ -1,4 +1,4 @@
-package model;
+package nl.avans.oopa.model;
 
 public class Input {
 

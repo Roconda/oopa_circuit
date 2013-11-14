@@ -1,6 +1,6 @@
-package model.gates;
+package nl.avans.oopa.model.gates;
 
-import model.Node;
+import nl.avans.oopa.model.Node;
 
 public class NodeNand extends Node {
 	

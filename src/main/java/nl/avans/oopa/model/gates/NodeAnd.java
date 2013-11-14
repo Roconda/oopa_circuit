@@ -1,5 +1,5 @@
-package model.gates;
-import model.Node;
+package nl.avans.oopa.model.gates;
+import nl.avans.oopa.model.Node;
 
 public class NodeAnd extends Node {
 
