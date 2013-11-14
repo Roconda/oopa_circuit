@@ -4,8 +4,8 @@ import nl.avans.oopa.model.Node;
 
 public class NodeNor extends Node {
 
-	public NodeNor(int inputs, int outputs) {
-		super(inputs, outputs);
+	public NodeNor(int inputs) {
+		super(inputs);
 	}
 	
 	@Override

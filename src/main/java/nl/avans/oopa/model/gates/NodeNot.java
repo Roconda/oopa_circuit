@@ -4,8 +4,8 @@ import nl.avans.oopa.model.Node;
 
 public class NodeNot extends Node {
 	
-	public NodeNot(int inputs, int outputs) {
-		super(inputs, outputs);
+	public NodeNot() {
+		super(1);
 	}
 	
 	@Override

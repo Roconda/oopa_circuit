@@ -3,14 +3,14 @@ import nl.avans.oopa.model.Node;
 
 public class NodeAnd extends Node {
 
-	public NodeAnd(int inputs, int outputs) {
-		super(inputs, outputs);
+	public NodeAnd(int inputs) {
+		super(inputs);
 	}
 	
 	@Override
 	protected void execute(){
 		for(int i = 0; i < inputs.length; i++){
-			//if even one result is false, AND returns false.
+			//if even one input is false, AND returns false.
 			if(!inputs[i]){
 				result = false;
 				return;

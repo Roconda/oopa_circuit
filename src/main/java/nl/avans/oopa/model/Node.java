@@ -1,16 +1,17 @@
 package nl.avans.oopa.model;
 
+import java.util.Stack;
+
 public class Node {
 	
 	protected boolean[] inputs;
-	protected Node[] outputs;
+	protected Stack<Node> outputs;
 	private int inputCounter = 0;
-	private int outputCounter = 0;
 	protected boolean result = false;
 	
-	public Node(int inputs, int outputs){
+	public Node(int inputs){
 		this.inputs = new boolean[inputs];
-		this.outputs = new Node[outputs];
+		this.outputs = new Stack<Node>();
 	}
 	
 	public void addInput(boolean input){
@@ -25,10 +26,7 @@ public class Node {
 	}
 	
 	public void addOutput(Node node){
-		if(outputCounter < outputs.length){
-			outputs[outputCounter] = node;
-			outputCounter++;
-		}
+		outputs.push(node);
 	}
 	
 	protected void execute(){
@@ -37,8 +35,8 @@ public class Node {
 	}
 	
 	protected void distributeResult(){
-		for(int i = 0; i < outputs.length; i++){
-			outputs[i].addInput(result);
+		while(!outputs.isEmpty()){
+			outputs.pop().addInput(result);
 		}
 	}
 	

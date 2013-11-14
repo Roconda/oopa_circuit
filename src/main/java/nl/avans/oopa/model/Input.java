@@ -1,26 +1,24 @@
 package nl.avans.oopa.model;
 
+import java.util.Stack;
+
 public class Input {
 
 	private boolean value;
-	private Node[] outputs;
-	private int outputCounter = 0;
+	private Stack<Node> outputs;
 	
 	public Input(boolean value, int outputs){
 		this.value = value;
-		this.outputs = new Node[outputs];
+		this.outputs = new Stack<Node>();
 	}
 	
 	public void addOutput(Node node){
-		if(outputCounter < outputs.length){
-			outputs[outputCounter] = node;
-			outputCounter++;
-		}
+		outputs.push(node);
 	}
 	
 	public void start(){
-		for(int i = 0; i < outputs.length; i++){
-			outputs[i].addInput(value);
+		while(!outputs.isEmpty()){
+			outputs.pop().addInput(value);
 		}
 	}
 }

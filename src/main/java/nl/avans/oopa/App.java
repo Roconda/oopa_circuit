@@ -12,7 +12,7 @@ public class App
 	public static void main(String[] args) {
 		Input A = new Input(false, 1);
 		Input B = new Input(true, 1);
-		Node N = new NodeXor(2, 1);
+		Node N = new NodeXor(2);
 		Probe P = new Probe();
 		A.addOutput(N);
 		B.addOutput(N);

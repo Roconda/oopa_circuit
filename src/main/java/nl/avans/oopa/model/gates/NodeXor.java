@@ -4,8 +4,8 @@ import nl.avans.oopa.model.Node;
 
 public class NodeXor extends Node {
 	
-	public NodeXor(int inputs, int outputs) {
-		super(inputs, outputs);
+	public NodeXor(int inputs) {
+		super(inputs);
 	}
 	
 	@Override
