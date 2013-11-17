@@ -4,25 +4,31 @@ import nl.avans.oopa.model.Node;
 
 public class NodeXor extends Node {
 	
-	public NodeXor(int inputs) {
-		super(inputs);
+	public NodeXor() {
+		super();
 	}
 	
 	@Override
 	protected void execute(){
-		boolean first = inputs[0];
+		//needs more than one input to work
+		if(inputs.size() <= 1){
+			result = false;
+			return;
+		}
+		
+		boolean first = inputs.get(0).getResult();
 		boolean allTheSame = false;
-		for(int i = 1; i < inputs.length; i++){
-			if(inputs[i] == first){
+		for(int i = 1; i < inputs.size(); i++){
+			if(inputs.get(i).getResult() == first){
 				allTheSame = true;
 			} else {
 				allTheSame = false;
 			}
+			if(!allTheSame){
+				result = true;
+				return;
+			}
 		}
-		if(allTheSame){
-			result = false;
-		} else {
-			result = true;
-		}
+		result = true;		
 	}
 }

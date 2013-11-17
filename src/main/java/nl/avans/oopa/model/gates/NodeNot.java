@@ -5,12 +5,12 @@ import nl.avans.oopa.model.Node;
 public class NodeNot extends Node {
 	
 	public NodeNot() {
-		super(1);
+		super();
 	}
 	
 	@Override
 	protected void execute(){
 		//not only takes one input, thus only looks at first entry in array.
-		result = !inputs[0];
+		result = !inputs.get(0).getResult();
 	}
 }

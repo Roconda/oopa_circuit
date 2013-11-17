@@ -3,15 +3,15 @@ import nl.avans.oopa.model.Node;
 
 public class NodeAnd extends Node {
 
-	public NodeAnd(int inputs) {
-		super(inputs);
+	public NodeAnd() {
+		super();
 	}
 	
 	@Override
 	protected void execute(){
-		for(int i = 0; i < inputs.length; i++){
+		for(Node n : inputs){
 			//if even one input is false, AND returns false.
-			if(!inputs[i]){
+			if(!n.getResult()){
 				result = false;
 				return;
 			}

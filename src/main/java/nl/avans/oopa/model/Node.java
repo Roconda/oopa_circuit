@@ -1,42 +1,41 @@
 package nl.avans.oopa.model;
 
-import java.util.Stack;
+import java.util.ArrayList;
 
 public class Node {
 	
-	protected boolean[] inputs;
-	protected Stack<Node> outputs;
-	private int inputCounter = 0;
+	protected ArrayList<Node> inputs;
+	protected ArrayList<Node> outputs;
 	protected boolean result = false;
 	
-	public Node(int inputs){
-		this.inputs = new boolean[inputs];
-		this.outputs = new Stack<Node>();
+	public Node(){
+		this.inputs = new ArrayList<Node>();
+		this.outputs = new ArrayList<Node>();
 	}
 	
-	public void addInput(boolean input){
-		if (inputCounter < inputs.length){
-			inputs[inputCounter] = input;
-			inputCounter++;
-			if(inputCounter == inputs.length){
-				execute();
-				distributeResult();
-			}
-		}
+	public void addInput(Node input){
+		inputs.add(input);
+		onInputChange();
 	}
 	
 	public void addOutput(Node node){
-		outputs.push(node);
+		outputs.add(node);
+		node.addInput(this);
+	}
+	
+	public void onInputChange(){
+		execute();
+		distributeResult();
 	}
 	
 	protected void execute(){
-		//The default node will always return true, just because...
-		result = true;
+		//The default node will always return false, just because...
+		result = false;
 	}
 	
 	protected void distributeResult(){
-		while(!outputs.isEmpty()){
-			outputs.pop().addInput(result);
+		for(Node n : outputs){
+			n.onInputChange();
 		}
 	}
 	

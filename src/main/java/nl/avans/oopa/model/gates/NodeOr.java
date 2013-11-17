@@ -4,15 +4,15 @@ import nl.avans.oopa.model.Node;
 
 public class NodeOr extends Node {
 	
-	public NodeOr(int inputs) {
-		super(inputs);
+	public NodeOr() {
+		super();
 	}
 	
 	@Override
 	protected void execute(){
-		for(int i = 0; i < inputs.length; i++){
+		for(Node n : inputs){
 			//if even one result is true, OR returns true.
-			if(inputs[i]){
+			if(n.getResult()){
 				result = true;
 				return;
 			}

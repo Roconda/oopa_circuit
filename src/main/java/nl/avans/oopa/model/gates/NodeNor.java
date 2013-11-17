@@ -4,19 +4,19 @@ import nl.avans.oopa.model.Node;
 
 public class NodeNor extends Node {
 
-	public NodeNor(int inputs) {
-		super(inputs);
+	public NodeNor() {
+		super();
 	}
 	
 	@Override
 	protected void execute(){
-		for(int i = 0; i < inputs.length; i++){
-			//if even one result is true, NOR returns false.
-			if(inputs[i]){
-				result = false;
+		for(Node n : inputs){
+			//if even one result is true, OR returns false (reverse of OR).
+			if(n.getResult()){
+				result = !true;
 				return;
 			}
 		}
-		result = true;
+		result = !false;
 	}
 }
