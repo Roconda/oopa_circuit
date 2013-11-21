@@ -1,5 +1,7 @@
 package nl.avans.oopa.model.gates;
 
+import java.util.ArrayList;
+
 import nl.avans.oopa.model.Node;
 
 public class NodeNor extends Node {
@@ -9,14 +11,13 @@ public class NodeNor extends Node {
 	}
 	
 	@Override
-	protected void execute(){
+	public boolean execute(ArrayList<Node> inputs){
 		for(Node n : inputs){
 			//if even one result is true, OR returns false (reverse of OR).
 			if(n.getResult()){
-				result = !true;
-				return;
+				return !true;
 			}
 		}
-		result = !false;
+		return !false;
 	}
 }

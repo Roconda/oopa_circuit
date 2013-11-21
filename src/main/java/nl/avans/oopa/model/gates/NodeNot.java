@@ -1,5 +1,7 @@
 package nl.avans.oopa.model.gates;
 
+import java.util.ArrayList;
+
 import nl.avans.oopa.model.Node;
 
 public class NodeNot extends Node {
@@ -9,8 +11,8 @@ public class NodeNot extends Node {
 	}
 	
 	@Override
-	protected void execute(){
+	public boolean execute(ArrayList<Node> inputs){
 		//not only takes one input, thus only looks at first entry in array.
-		result = !inputs.get(0).getResult();
+		return !inputs.get(0).getResult();
 	}
 }

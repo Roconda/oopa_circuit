@@ -23,7 +23,7 @@ public class App
 		} else {
 			System.out.println("false");
 		}
-		A.changeValue(false);
+		B.changeValue(false);
 		result = P.getResult();
 		if(result){
 			System.out.println("true");

@@ -1,24 +1,21 @@
 package nl.avans.oopa.model;
 
+import java.util.ArrayList;
+
 public class Input extends Node{
 	
 	public Input(boolean value){
 		super();
-		result = value;
-	}
-	
-	public void addOutput(Node node){
-		outputs.add(node);
-		node.addInput(this);
-		sendValue();
+		setResult(value);
 	}
 	
 	public void changeValue(boolean value){
-		this.result = value;
-		sendValue();
+		setResult(value);
 	}
-	
-	private void sendValue(){
-		distributeResult();
+
+	@Override
+	public boolean execute(ArrayList<Node> inputs) {
+		//is never called in Input, but needs to be implemented
+		return false;
 	}
 }

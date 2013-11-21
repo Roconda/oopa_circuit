@@ -2,11 +2,14 @@ package nl.avans.oopa.model;
 
 import java.util.ArrayList;
 
-public class Node {
+public abstract class Node {
 	
 	protected ArrayList<Node> inputs;
-	protected ArrayList<Node> outputs;
-	protected boolean result = false;
+	private ArrayList<Node> outputs;
+	private boolean result = false; //false is default output if execute can't be ran.
+	private int neededInputs = 2;
+	
+	public abstract boolean execute(ArrayList<Node> inputs);
 	
 	public Node(){
 		this.inputs = new ArrayList<Node>();
@@ -24,13 +27,11 @@ public class Node {
 	}
 	
 	public void onInputChange(){
-		execute();
-		distributeResult();
-	}
-	
-	protected void execute(){
-		//The default node will always return false, just because...
-		result = false;
+		if(inputs.size() >= neededInputs)
+		{
+			result = execute(inputs);
+			distributeResult();
+		}
 	}
 	
 	protected void distributeResult(){
@@ -41,5 +42,13 @@ public class Node {
 	
 	public boolean getResult(){
 		return result;
+	}
+	
+	public void setResult(boolean result){ //used to hard set the result, mainly used by Input
+		this.result = result;
+	}
+	
+	public void setNeededInputs(int inputs){
+		neededInputs = inputs;
 	}
 }

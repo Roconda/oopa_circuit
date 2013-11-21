@@ -1,5 +1,7 @@
 package nl.avans.oopa.model;
 
+import java.util.ArrayList;
+
 public class Probe extends Node {
 
 	public Probe() {
@@ -7,8 +9,8 @@ public class Probe extends Node {
 	}
 	
 	@Override
-	protected void execute(){
-		result = inputs.get(0).getResult();
+	public boolean execute(ArrayList<Node> inputs){
+		return inputs.get(0).getResult();
 	}
 
 }
