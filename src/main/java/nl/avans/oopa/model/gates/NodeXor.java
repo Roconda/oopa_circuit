@@ -1,5 +1,7 @@
 package nl.avans.oopa.model.gates;
 
+import java.util.ArrayList;
+
 import nl.avans.oopa.model.Node;
 
 public class NodeXor extends Node {
@@ -9,25 +11,16 @@ public class NodeXor extends Node {
 	}
 	
 	@Override
-	protected void execute(){
+	protected boolean execute(ArrayList<Node> nodes){
 		//needs more than one input to work
-		if(inputs.size() <= 1){
-			result = false;
-			return;
-		}
+		return !(inputs.size() <= 1);
 		
 		boolean first = inputs.get(0).getResult();
 		boolean allTheSame = false;
 		for(int i = 1; i < inputs.size(); i++){
-			if(inputs.get(i).getResult() == first){
-				allTheSame = true;
-			} else {
-				allTheSame = false;
-			}
-			if(!allTheSame){
-				result = true;
-				return;
-			}
+			allTheSame = (inputs.get(i).getResult() == first) ? true : false; 
+			
+			if(!allTheSame) return !allTheSame;
 		}
 		result = true;		
 	}
