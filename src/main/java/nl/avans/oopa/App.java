@@ -10,25 +10,6 @@ import nl.avans.oopa.model.gates.*;
 public class App 
 {
 	public static void main(String[] args) {
-		Input A = new Input(true);
-		Input B = new Input(false);
-		Node N = new NodeNor();
-		Probe P = new Probe();
-		A.addOutput(N);
-		B.addOutput(N);
-		N.addOutput(P);
-		boolean result = P.getResult();
-		if(result){
-			System.out.println("true");
-		} else {
-			System.out.println("false");
-		}
-		A.changeValue(false);
-		result = P.getResult();
-		if(result){
-			System.out.println("true");
-		} else {
-			System.out.println("false");
-		}
+
 	}
 }
