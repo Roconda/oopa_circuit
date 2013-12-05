@@ -1,6 +1,8 @@
-package nl.avans.oopa.model;
+package nl.avans.oopa.model.gates;
 
 import java.util.ArrayList;
+
+import nl.avans.oopa.model.Node;
 
 public class Probe extends Node {
 

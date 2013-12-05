@@ -10,25 +10,11 @@ import nl.avans.oopa.model.gates.*;
 public class App 
 {
 	public static void main(String[] args) {
-		Input A = new Input(true);
-		Input B = new Input(false);
-		Node N = new NodeNor();
-		Probe P = new Probe();
-		A.addOutput(N);
-		B.addOutput(N);
-		N.addOutput(P);
-		boolean result = P.getResult();
-		if(result){
-			System.out.println("true");
-		} else {
-			System.out.println("false");
-		}
-		B.changeValue(false);
-		result = P.getResult();
-		if(result){
-			System.out.println("true");
-		} else {
-			System.out.println("false");
+		try{
+			Object node = Class.forName("nl.avans.oopa.model.gates.NodeOr");
+			NodeOr or = (NodeOr) node;
+		} catch(Exception e){
+			System.out.println("whoops");
 		}
 	}
 }

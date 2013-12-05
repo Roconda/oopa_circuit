@@ -1,8 +1,6 @@
 package nl.avans.oopa;
 
-import nl.avans.oopa.model.Input;
 import nl.avans.oopa.model.Node;
-import nl.avans.oopa.model.Probe;
 import nl.avans.oopa.model.gates.*;
 import junit.framework.Test;
 import junit.framework.TestCase;

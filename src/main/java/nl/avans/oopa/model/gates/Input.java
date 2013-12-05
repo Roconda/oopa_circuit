@@ -1,9 +1,10 @@
-package nl.avans.oopa.model;
+package nl.avans.oopa.model.gates;
 
 import java.util.ArrayList;
 
+import nl.avans.oopa.model.Node;
+
 public class Input extends Node{
-	
 	public Input(boolean value){
 		super();
 		setResult(value);
