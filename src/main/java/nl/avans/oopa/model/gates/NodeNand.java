@@ -6,8 +6,15 @@ import nl.avans.oopa.model.Node;
 
 public class NodeNand extends Node {
 	
+	@SuppressWarnings("unused")
+	private static NodeNand nodeNand = new NodeNand("NAND");
+	
 	public NodeNand() {
 		super();
+	}
+	
+	private NodeNand(String id){
+		super(id);
 	}
 	
 	@Override
@@ -19,5 +26,10 @@ public class NodeNand extends Node {
 			}
 		}
 		return !true;
+	}
+
+	@Override
+	public Node copy() {
+		return new NodeNand();
 	}
 }

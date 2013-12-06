@@ -6,8 +6,15 @@ import nl.avans.oopa.model.Node;
 
 public class NodeOr extends Node {
 	
+	@SuppressWarnings("unused")
+	private static NodeOr nodeOr = new NodeOr("OR");
+	
 	public NodeOr() {
 		super();
+	}
+	
+	private NodeOr(String id){
+		super(id);
 	}
 	
 	@Override
@@ -19,5 +26,10 @@ public class NodeOr extends Node {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public Node copy() {
+		return new NodeOr();
 	}
 }

@@ -4,16 +4,21 @@ import java.util.ArrayList;
 
 public abstract class Node {
 	
-	protected ArrayList<Node> inputs;
+	private ArrayList<Node> inputs;
 	private ArrayList<Node> outputs;
 	private boolean result = false; //false is default output if execute can't be ran.
 	private int neededInputs = 2;
 	
 	public abstract boolean execute(ArrayList<Node> inputs);
+	public abstract Node copy();
 	
 	public Node(){
 		this.inputs = new ArrayList<Node>();
 		this.outputs = new ArrayList<Node>();
+	}
+	
+	public Node(String id){
+		Factory.assing(id, this);
 	}
 	
 	public void addInput(Node input){

@@ -5,9 +5,16 @@ import java.util.ArrayList;
 import nl.avans.oopa.model.Node;
 
 public class NodeNor extends Node {
+	
+	@SuppressWarnings("unused")
+	private static NodeNor nodeNor = new NodeNor("NOR");
 
 	public NodeNor() {
 		super();
+	}
+	
+	private NodeNor(String id){
+		super(id);
 	}
 	
 	@Override
@@ -19,5 +26,10 @@ public class NodeNor extends Node {
 			}
 		}
 		return !false;
+	}
+
+	@Override
+	public Node copy() {
+		return new NodeNor();
 	}
 }

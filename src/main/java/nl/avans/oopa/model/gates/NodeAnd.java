@@ -4,9 +4,16 @@ import java.util.ArrayList;
 import nl.avans.oopa.model.Node;
 
 public class NodeAnd extends Node {
+	
+	@SuppressWarnings("unused")
+	private static NodeAnd nodeAnd = new NodeAnd("AND");
 
 	public NodeAnd() {
 		super();
+	}
+	
+	private NodeAnd(String id) {
+		super(id);
 	}
 	
 	@Override
@@ -18,5 +25,10 @@ public class NodeAnd extends Node {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public Node copy() {
+		return new NodeAnd();
 	}
 }

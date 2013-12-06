@@ -11,8 +11,19 @@ public class App
 {
 	public static void main(String[] args) {
 		try{
-			Object node = Class.forName("nl.avans.oopa.model.gates.NodeOr");
-			NodeOr or = (NodeOr) node;
+			System.out.println("starting");
+			Node xor = Factory.create("AND");
+			Node probe = Factory.create("PROBE");
+			Node inA = Factory.create("INPUT_HIGH");
+			Node inB = Factory.create("INPUT_HIGH");
+			inA.addOutput(xor);
+			inB.addOutput(xor);
+			xor.addOutput(probe);
+			if(probe.getResult()){
+				System.out.println("YES");
+			} else {
+				System.out.println("NO");
+			}
 		} catch(Exception e){
 			System.out.println("whoops");
 		}
