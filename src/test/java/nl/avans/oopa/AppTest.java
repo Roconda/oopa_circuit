@@ -1,5 +1,6 @@
 package nl.avans.oopa;
 
+import nl.avans.oopa.model.Factory;
 import nl.avans.oopa.model.Node;
 import nl.avans.oopa.model.gates.*;
 import junit.framework.Test;
@@ -242,5 +243,20 @@ public class AppTest
 		boolean result3 = P3.getResult();
 		
 		assertFalse(result3);
+    }
+    
+    public void testFactory() {
+		
+    	
+		Node xor = Factory.create("AND");
+		Node probe = Factory.create("PROBE");
+		Node inA = Factory.create("INPUT_HIGH");
+		Node inB = Factory.create("INPUT_HIGH");
+		inA.addOutput(xor);
+		inB.addOutput(xor);
+		xor.addOutput(probe);
+		
+		assertTrue(probe.getResult());
+
     }
 }
