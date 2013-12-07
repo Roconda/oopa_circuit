@@ -1,31 +1,46 @@
 package nl.avans.oopa;
 
-import nl.avans.oopa.model.*;
-import nl.avans.oopa.model.gates.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * Hello world!
- *
+ * 
  */
-public class App 
-{
+public class App {
+
+
 	public static void main(String[] args) {
-		try{
-			System.out.println("starting");
-			Node xor = Factory.create("AND");
-			Node probe = Factory.create("PROBE");
-			Node inA = Factory.create("INPUT_HIGH");
-			Node inB = Factory.create("INPUT_HIGH");
-			inA.addOutput(xor);
-			inB.addOutput(xor);
-			xor.addOutput(probe);
-			if(probe.getResult()){
-				System.out.println("YES");
-			} else {
-				System.out.println("NO");
+
+		if(args.length == 1){
+			// read text file
+			String name = args[0];
+			File f = new File (name);
+			BufferedReader br = null;
+
+			try {
+				FileReader fr = new FileReader(f);
+				br = new BufferedReader(fr);
+				String output;
+
+				while ( (output = br.readLine()) != null) {
+					System.out.println(output);
+				}
+
+			} catch (FileNotFoundException e) {
+				System.out.println("File not found");
+			} catch (IOException e) {
+				System.out.println("Unable to read file");
 			}
-		} catch(Exception e){
-			System.out.println("whoops");
-		}
+
+			System.exit(0);
+		}else System.out.println("Available arguments: <text file>");
+
+		// Gone wrong
+		System.exit(1);
+
 	}
 }
