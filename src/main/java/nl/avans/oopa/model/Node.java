@@ -21,7 +21,7 @@ public abstract class Node {
 		Factory.assing(id, this);
 	}
 	
-	public void addInput(Node input){
+	private void addInput(Node input){
 		inputs.add(input);
 		onInputChange();
 	}
@@ -39,7 +39,7 @@ public abstract class Node {
 		}
 	}
 	
-	protected void distributeResult(){
+	private void distributeResult(){
 		for(Node n : outputs){
 			n.onInputChange();
 		}
@@ -51,6 +51,7 @@ public abstract class Node {
 	
 	public void setResult(boolean result){ //used to hard set the result, mainly used by Input
 		this.result = result;
+		distributeResult();
 	}
 	
 	public void setNeededInputs(int inputs){
